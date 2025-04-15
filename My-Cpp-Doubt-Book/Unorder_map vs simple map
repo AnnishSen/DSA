@@ -1,0 +1,68 @@
+🔹 What is unordered_map in C++?
+unordered_map is a built-in container in C++ (from the STL – Standard Template Library) that stores key-value pairs just like a dictionary in Python or a map in Java.
+
+But here's the catch:
+
+It doesn't maintain any order of keys — hence the name unordered_map.
+
+✅ Syntax:
+cpp
+Copy
+Edit
+#include <unordered_map>
+
+unordered_map<key_type, value_type> mapName;
+Example:
+
+cpp
+Copy
+Edit
+unordered_map<int, string> student;
+This creates a map where:
+
+The key is an int (e.g., student ID)
+
+The value is a string (e.g., student name)
+
+⚙️ How it works internally:
+It's based on hash tables
+
+So all operations (insert, delete, find) are on average O(1) time complexity
+
+🔧 Basic Operations:
+cpp
+Copy
+Edit
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+
+int main() {
+    unordered_map<int, string> myMap;
+
+    // Inserting elements
+    myMap[1] = "Alice";
+    myMap[2] = "Bob";
+    myMap[3] = "Charlie";
+
+    // Accessing
+    cout << myMap[2] << endl; // Output: Bob
+
+    // Checking if key exists
+    if (myMap.count(3)) {
+        cout << "Key 3 exists." << endl;
+    }
+
+    // Iterating
+    for (auto pair : myMap) {
+        cout << pair.first << " => " << pair.second << endl;
+    }
+
+    return 0;
+}
+🔍 Difference between map and unordered_map:
+Feature	map	unordered_map
+Order	Sorted (by key)	No order (random)
+Time Complexity	O(log n)	O(1) on average
+Internal structure	Red-Black Tree	Hash Table
+Header file	<map>	<unordered_map>
