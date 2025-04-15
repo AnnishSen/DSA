@@ -1,0 +1,9 @@
+🔁 DFS vs Level Order Traversal (LOT)
+Feature	DFS (Depth First Search)                                                        	LOT (Level Order Traversal)
+Traversal Style	Goes deep down a path (left/right) first	                                Visits nodes level by level
+Implementation	Usually recursive (or with a stack)                                       Always uses a queue
+Order	Preorder, Inorder, Postorder	                                                      Top to bottom, left to right level-wise
+Memory Usage	Depends on tree height (stack space)                                       	Depends on breadth of tree (queue space)
+Best For	When we need to explore paths (e.g., root to leaf)                            	When we want shortest path or nodes at a certain level
+Example Use Case	Sum root-to-leaf paths,                                                 Binary Tree Paths	Printing nodes level by level, finding min depth
+Traversal Output (for tree):	1 → 2 → 4 → 5 → 3 → 6 (Preorder DFS)                       	1 → 2 → 3 → 4 → 5 → 6 (LOT)
