@@ -1,0 +1,19 @@
+Doubt Note: Difference between Returning Values vs. Just Calling Functions
+
+Context:
+In recursive tree problems, there's often confusion between calling a function and returning its result.
+// Case 1 - Just calling the functions
+solve(root->left, root);
+solve(root->right, root);
+return true;
+Problem Explored:
+We examined the behavior of two different ways of making recursive calls:
+
+// Case 2 - Returning combined result
+return solve(root->left, root) && solve(root->right, root);
+
+Key Difference:
+
+In Case 1, the results of the recursive calls are not being used. Even if a call returns false, the main function ignores it and returns true anyway. Any logical failure in subtree checks is lost.
+
+In Case 2, we are ensuring that both left and right subtrees must satisfy the condition. If either returns false, the result immediately becomes false and gets propagated up the call stack.
