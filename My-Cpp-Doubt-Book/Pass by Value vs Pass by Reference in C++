@@ -1,0 +1,58 @@
+🔁 Pass by Reference (&)
+✅ Description:
+Passes the actual variable, not a copy.
+
+Changes made inside the function affect the original variable.
+
+📦 Syntax:
+cpp
+Copy
+Edit
+void modify(string &s) {
+    s += " world";
+}
+🧪 Example:
+cpp
+Copy
+Edit
+string s = "hello";
+modify(s); // s becomes "hello world"
+✔️ Pros:
+Efficient (no copy made — saves memory).
+
+Can directly modify the original variable.
+
+⚠️ Cons:
+Risky in recursion — you have to backtrack manually if modified.
+
+Unintended changes may affect other parts of code.
+
+📦 Pass by Value
+✅ Description:
+Passes a copy of the variable.
+
+Changes made inside the function do NOT affect the original.
+
+📦 Syntax:
+cpp
+Copy
+Edit
+void modify(string s) {
+    s += " world";
+}
+🧪 Example:
+cpp
+Copy
+Edit
+string s = "hello";
+modify(s); // s is still "hello"
+✔️ Pros:
+Safe: original data stays untouched.
+
+Perfect for recursion — no need to undo changes.
+
+⚠️ Cons:
+Slightly slower for large objects (because of the copy).
+
+Cannot modify the original unless you return a value.
+
