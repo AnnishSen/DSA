@@ -39,3 +39,75 @@ Set isBST = false
 
 Return the global variable ans which holds the largest BST size.
 
+Step-by-step Dry Run
+We define:
+
+cpp
+Copy
+Edit
+info {maxi, mini, isBST, size}
+🔽 Recursive Calls (Postorder):
+🌿 Left Subtree of 5:
+Node = 1 (leaf)
+
+Left and right return {INT_MIN, INT_MAX, true, 0}
+
+maxi = 1, mini = 1, isBST = true, size = 1
+
+✅ It's a BST.
+
+Node = 8 (leaf)
+
+Same as above, returns {8, 8, true, 1}
+
+✅ It's a BST.
+
+Node = 5:
+
+Left = {1, 1, true, 1}
+
+Right = {8, 8, true, 1}
+
+Current node 5:
+
+5 > 1 (left.maxi), 5 < 8 (right.mini)
+
+✅ Valid BST
+
+size = 1 (left) + 1 (right) + 1 = 3
+
+ans = 3
+
+🌿 Right Subtree of 15:
+Node = 7 (leaf)
+
+{7, 7, true, 1}
+
+✅ It's a BST
+
+Node = 15:
+
+Left = NULL → {INT_MIN, INT_MAX, true, 0}
+
+Right = {7, 7, true, 1}
+
+Condition: 15 < 7 ❌ → Invalid
+
+So, isBST = false, size = 2 (but not used in ans)
+
+🌳 Root Node = 10:
+Left = {8, 1, true, 3}
+
+Right = {15, 7, false, 2}
+
+Since right subtree is not BST → Current subtree is not BST.
+
+So, we don’t update ans.
+
+✅ Final Result:
+Largest BST subtree = Left Subtree rooted at 5
+
+Size = 3
+
+
+
