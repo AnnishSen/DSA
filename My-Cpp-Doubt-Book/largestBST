@@ -1,0 +1,41 @@
+✅ Algorithm: largestBST(TreeNode* root)
+Create a helper class info to store:
+
+maxi: Max value in subtree
+
+mini: Min value in subtree
+
+isBST: Whether subtree is a BST
+
+size: Total nodes in subtree
+
+Recursive function solve(root):
+
+If node is NULL, return:
+
+ini
+Copy
+Edit
+maxi = INT_MIN, mini = INT_MAX, isBST = true, size = 0
+Recursively call for left and right subtree.
+
+Calculate:
+
+currSize = left.size + right.size + 1
+
+currMax = max(root->data, right.maxi)
+
+currMin = min(root->data, left.mini)
+
+If subtree is a valid BST:
+
+Set isBST = true
+
+Update global ans = max(ans, currSize)
+
+Else:
+
+Set isBST = false
+
+Return the global variable ans which holds the largest BST size.
+
