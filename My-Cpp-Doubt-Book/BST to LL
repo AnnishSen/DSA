@@ -1,0 +1,34 @@
+class TreeNode {
+public:
+    int data;
+    TreeNode* left;
+    TreeNode* right;
+
+    TreeNode(int val) {
+        data = val;
+        left = NULL;
+        right = NULL;
+    }
+};
+
+// Global pointer to keep track of head of DLL
+TreeNode* head = NULL;
+
+void convertBSTtoDLL(TreeNode* root) {
+    if (root == NULL) return;
+
+    // Step 1: Convert right subtree first
+    convertBSTtoDLL(root->right);
+
+    // Step 2: Link current root with head of DLL
+    root->right = head;
+    if (head != NULL) {
+        head->left = root;
+    }
+
+    // Step 3: Update head to current root
+    head = root;
+
+    // Step 4: Convert left subtree
+    convertBSTtoDLL(root->left);
+}
