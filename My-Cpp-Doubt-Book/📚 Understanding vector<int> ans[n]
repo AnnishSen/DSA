@@ -1,0 +1,59 @@
+📚 Understanding vector<int> ans[n] in C++
+🧾 What does vector<int> ans[n]; mean?
+This line declares an array of vectors.
+Each element ans[i] is a dynamic list (vector<int>) that can grow as needed.
+
+🔍 Syntax Breakdown:
+cpp
+Copy
+Edit
+vector<int> ans[n];
+ans → name of the array.
+
+n → size of the array.
+
+vector<int> → type of each element in the array (a list of integers).
+
+✅ Use Case — Graphs (Adjacency List)
+This is commonly used to represent a graph using an adjacency list.
+
+Example:
+cpp
+Copy
+Edit
+int n = 4;
+vector<int> ans[n];
+
+ans[0].push_back(1);
+ans[0].push_back(2);
+
+ans[1].push_back(0);
+ans[2].push_back(0);
+Represents this graph:
+
+lua
+Copy
+Edit
+0 --> 1, 2  
+1 --> 0  
+2 --> 0
+⚠️ Note — Better Alternative
+Instead of vector<int> ans[n], prefer:
+
+cpp
+Copy
+Edit
+vector<vector<int>> ans(n);
+✅ Benefits:
+
+Memory-safe (no stack overflow issues).
+
+STL-friendly (can pass as function parameters easily).
+
+Cleaner syntax.
+
+🧠 Summary
+Syntax	Meaning
+vector<int> ans[n];	Array of n vectors
+vector<vector<int>> ans(n);	Vector of n vectors (recommended)
+
