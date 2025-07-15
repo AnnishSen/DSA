@@ -1,0 +1,63 @@
+🔄 Range-Based For Loop in C++
+📌 What is a Range-Based For Loop?
+A range-based for loop provides a clean and readable way to iterate over elements of containers like vectors, sets, arrays, etc.
+
+It was introduced in C++11.
+
+🧠 Syntax:
+cpp
+Copy
+Edit
+for (auto variable : container) {
+    // logic
+}
+✅ Example (Graph Edge Iteration):
+cpp
+Copy
+Edit
+vector<vector<int>> edges = {{1, 2}, {2, 3}, {2, 4}};
+unordered_map<int, int> degree;
+
+for (auto edge : edges) {
+    degree[edge[0]]++;
+    degree[edge[1]]++;
+}
+🔍 Equivalent Traditional For Loop:
+cpp
+Copy
+Edit
+for (int i = 0; i < edges.size(); i++) {
+    vector<int> edge = edges[i];
+    degree[edge[0]]++;
+    degree[edge[1]]++;
+}
+💡 Why Use It?
+Advantage	Description
+✅ Cleaner Syntax	No need to manage indices manually
+✅ Reduces Bugs	Avoids off-by-one and index errors
+✅ Works with Any Container	STL vector, set, map, arrays, etc.
+✅ Better Readability	Code looks more like pseudocode
+
+⚠️ Things to Note:
+If you want to modify the elements, use reference:
+
+cpp
+Copy
+Edit
+for (auto& edge : edges) {
+    // modify edge directly
+}
+If you're only reading, auto by value is fine.
+
+📂 Use Case in Competitive Programming / Graphs:
+Used commonly in:
+
+Traversing edge lists.
+
+BFS/DFS traversal.
+
+Processing adjacency lists/maps.
+
+🏁 Final Tip:
+Prefer range-based loops when readability is more important than manual index control. It makes the logic concise and easier to debug.
+
