@@ -1,0 +1,65 @@
+// C++ Array & Vector Cheat Sheet
+
+// 1. Declaration
+int arr[100];                // Static array
+vector<int> v;              // Dynamic vector
+vector<int> v(10, 0);       // Vector of size 10 with all 0s
+
+// 2. Insertion
+v.push_back(5);             // Add 5 to end
+v.insert(v.begin() + 2, 10); // Insert 10 at index 2
+arr[i] = value;             // Insert at index i
+
+// 3. Access
+int x = v[3];               // Access 4th element
+int y = arr[2];             // Access 3rd element
+
+// 4. Update
+v[1] = 100;                 // Change 2nd element
+arr[0] = 20;                // Change 1st element
+
+// 5. Deletion
+v.pop_back();               // Remove last
+v.erase(v.begin() + 3);     // Remove at index 3
+v.clear();                  // Remove all
+
+// 6. Search
+if (find(v.begin(), v.end(), 10) != v.end()) {
+    cout << "Found 10";
+}
+
+// 7. Sort / Reverse
+sort(v.begin(), v.end());    // Sort ascending
+reverse(v.begin(), v.end()); // Reverse
+
+// 8. Size / Capacity
+int size = v.size();         // Number of elements
+int cap = v.capacity();      // Capacity (vector only)
+
+// 9. Loop
+for (int i = 0; i < v.size(); i++) cout << v[i];
+for (int x : v) cout << x;
+
+// 10. Copy
+vector<int> b = v;           // Copy vector
+int arr2[100];
+copy(arr, arr + n, arr2);    // Copy C array
+
+// 11. Array <-> Vector
+int arr[] = {1, 2, 3};
+vector<int> v(arr, arr + 3); // Array to vector
+
+int newArr[3];
+copy(v.begin(), v.end(), newArr); // Vector to array
+
+// 12. Fill
+fill(arr, arr + 100, -1);     // Array with -1
+fill(v.begin(), v.end(), 0);  // Vector with 0
+
+// 13. 2D Arrays / Vectors
+int mat[100][100];            // 2D array
+vector<vector<int>> grid(3, vector<int>(4, 0)); // 3x4 with 0
+
+// 14. Resize
+v.resize(20);                 // Resize to 20 (default 0)
+v.resize(5, -1);              // Resize to 5, fill new with -1
